@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://c32xg7yioacys"]
+
+[ext_resource type="Script" uid="uid://bm768kd65pgw" path="res://config/network/client/info/property/property.gd" id="1_qiqxg"]
+
+[node name="property" type="Control"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_qiqxg")
+
+[node name="key_value" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="key" type="Label" parent="key_value"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY"
+vertical_alignment = 1
+
+[node name="value" type="CenterContainer" parent="key_value"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="type_bool" type="CheckBox" parent="key_value/value"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+disabled = true
+button_pressed = true
+
+[node name="type_string" type="Label" parent="key_value/value"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+vertical_alignment = 1
+
+[node name="type_int" type="SpinBox" parent="key_value/value"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+editable = false

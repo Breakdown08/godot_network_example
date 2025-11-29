@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccdoffckvyosi"]
+
+[ext_resource type="Script" uid="uid://w78nkufiwg4t" path="res://config/network/client/client.gd" id="1_qmh2g"]
+
+[node name="client" type="Button"]
+custom_minimum_size = Vector2(112, 32)
+text = "1123123133333"
+clip_text = true
+script = ExtResource("1_qmh2g")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 4.0
+ignore_time_scale = true

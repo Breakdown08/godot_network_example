@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://gxiyx8vjs7xs"]
+
+[ext_resource type="Script" uid="uid://b8m1fuuuw0qqa" path="res://config/main.gd" id="1_fle1t"]
+[ext_resource type="Script" uid="uid://dxu187c68jmba" path="res://config/network/server.gd" id="2_frq77"]
+[ext_resource type="PackedScene" uid="uid://nddknreyufej" path="res://config/network/client/info/info.tscn" id="3_4exyv"]
+[ext_resource type="PackedScene" uid="uid://xd25w1eti8xp" path="res://config/network/lobby/lobby.tscn" id="3_frq77"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fle1t"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fle1t")
+
+[node name="server" type="Node" parent="."]
+script = ExtResource("2_frq77")
+metadata/_custom_type_script = "uid://dxu187c68jmba"
+
+[node name="panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="body" type="VBoxContainer" parent="panel/margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="system" type="HBoxContainer" parent="panel/margin/body"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="start" type="Button" parent="panel/margin/body/system"]
+visible = false
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+text = "START"
+
+[node name="status" type="Panel" parent="panel/margin/body/system"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_fle1t")
+
+[node name="content" type="HBoxContainer" parent="panel/margin/body"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="lobby" parent="panel/margin/body/content" instance=ExtResource("3_frq77")]
+layout_mode = 2
+
+[node name="client_info" parent="panel/margin/body/content" instance=ExtResource("3_4exyv")]
+layout_mode = 2

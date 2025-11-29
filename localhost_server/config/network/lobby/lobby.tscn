@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://xd25w1eti8xp"]
+
+[ext_resource type="Script" uid="uid://conohfciyxhg2" path="res://config/network/lobby/lobby.gd" id="1_pifp7"]
+
+[node name="lobby" type="Panel"]
+size_flags_horizontal = 3
+script = ExtResource("1_pifp7")
+
+[node name="scroll" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="flow" type="HFlowContainer" parent="scroll/margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+alignment = 1

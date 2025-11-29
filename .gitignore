@@ -1,0 +1,19 @@
+# Godot-specific ignores for all subprojects
+*/.godot/
+*.import
+
+# Build/export artifacts commonly found in subprojects
+/export/
+*.pck
+*.exe
+*.x86_64
+*.apk
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
+
+# Temporary/editor files
+*.swp
+*.swo
+*~
