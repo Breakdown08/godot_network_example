@@ -21,7 +21,6 @@ func _ready():
 func create():
 	connection.bind(0, LOCALHOST)
 	connection.connect_to_host(LOCALHOST, HOST_PORT)
-	id = "%s:%s" % [LOCALHOST, str(connection.get_local_port())]
 	set_process(true)
 	client_data_requested.emit(self)
 	discovery_timer.start()
@@ -35,7 +34,7 @@ func discovery(data:Dictionary):
 			JSON.stringify(data)
 		]
 	).to_utf8_buffer())
-	#Console.write("[DISCOVERY_LOCALOST]: %s" % JSON.stringify(data))
+	#EventBus.general_message.emit("[DISCOVERY_LOCALOST]: %s" % JSON.stringify(data))
 
 
 func _process(delta):

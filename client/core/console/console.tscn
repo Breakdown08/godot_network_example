@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfjsuocvgyffd"]
+
+[ext_resource type="PackedScene" uid="uid://bvo7hg2e7ks7k" path="res://core/console/tabs/tab_general/tab_general.tscn" id="1_5kios"]
+[ext_resource type="Script" uid="uid://bikyf12pysqq3" path="res://core/console/console.gd" id="1_w3y38"]
+
+[node name="console" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_w3y38")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="tabs" type="TabContainer" parent="margin"]
+layout_mode = 2
+current_tab = 0
+
+[node name="tab_general" parent="margin/tabs" instance=ExtResource("1_5kios")]
+layout_mode = 2
+metadata/_tab_index = 0

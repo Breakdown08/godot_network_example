@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c84vvukfaxkrx"]
+
+[ext_resource type="Script" uid="uid://5tk3wic2j5tt" path="res://core/lobby/network_interfaces/network_lan/network_lan.gd" id="1_l58ts"]
+
+[node name="network_lan" type="Node"]
+script = ExtResource("1_l58ts")

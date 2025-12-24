@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpukj8clw12fh"]
 
-[ext_resource type="Script" uid="uid://bl16i5r01he2s" path="res://config/lobby/network_interfaces/network_localhost/network_localhost.gd" id="1_aayy0"]
+[ext_resource type="Script" uid="uid://bl16i5r01he2s" path="res://core/lobby/network_interfaces/network_localhost/network_localhost.gd" id="1_aayy0"]
 
 [node name="network_localhost" type="Node"]
 script = ExtResource("1_aayy0")

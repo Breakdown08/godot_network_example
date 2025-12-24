@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpaeommbun7bl"]
 
-[ext_resource type="Script" uid="uid://bjnc2sc6mewti" path="res://config/lobby/client/client.gd" id="1_r666h"]
+[ext_resource type="Script" uid="uid://bjnc2sc6mewti" path="res://core/lobby/client/client.gd" id="1_r666h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r666h"]
 bg_color = Color(1, 1, 1, 1)
@@ -9,7 +9,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="device" type="Control"]
+[node name="client" type="Control"]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 3
 anchor_right = 1.0
@@ -40,6 +40,11 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "127.0.0.1"
+
+[node name="menu" type="MenuButton" parent="margin/props"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "..."
 
 [node name="master_tag" type="Label" parent="margin/props"]
 visible = false

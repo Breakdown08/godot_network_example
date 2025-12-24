@@ -7,29 +7,28 @@ const CLIENT_DATA_IS_HOST:String = "is_host"
 const CLIENT_DATA_ID:String = "id"
 const CLIENT_DATA_USER_NAME:String = "user_name"
 
-const CLIENT:PackedScene = preload("res://config/lobby/client/client.tscn")
-const NETWORK_INTERFACE_LOCALHOST = preload("res://config/lobby/network_interfaces/network_localhost/network_localhost.tscn")
-const NETWORK_INTERFACE_LAN = preload("res://config/lobby/network_interfaces/network_lan/network_lan.tscn")
-
 enum Status {TIMEOUT, ALIVE}
 
-var id_table:Dictionary[String, Client]
+var id_table:Dictionary[String, LobbyClient]
+
+var client_id:String
 
 var interface:NetworkInterface
 
 
 func start(localhost_mode:bool = false):
-	interface = NETWORK_INTERFACE_LOCALHOST.instantiate() if localhost_mode else NETWORK_INTERFACE_LAN.instantiate()
-	interface.client_data_requested.connect(_on_interface_data_requested)
+	interface = Preloader.NETWORK_INTERFACE_LOCALHOST.instantiate() if localhost_mode else Preloader.NETWORK_INTERFACE_LAN.instantiate()
+	interface.id = client_id
+	interface.client_data_requested.connect(_on_client_data_requested)
 	interface.clients_list_updated.connect(_on_clients_list_updated)
 	add_child(interface)
 	interface.create()
 
 
-func _on_interface_data_requested(network_interface:NetworkInterface):
+func _on_client_data_requested(network_interface:NetworkInterface):
 	network_interface.discovery(
 			_create_client_data(
-			network_interface.id,
+			client_id,
 			"username",
 			false
 		)
@@ -46,8 +45,8 @@ static func _create_client_data(id:String, user_name:String, is_host:bool) -> Di
 	return device_data
 
 
-func _create_client(id:String, data:Dictionary) -> Client:
-	var client:Client = CLIENT.instantiate()
+func _create_client(id:String, data:Dictionary) -> LobbyClient:
+	var client:LobbyClient = Preloader.CLIENT.instantiate()
 	client.id = id
 	client.data = data
 	interface.client_data_updated.connect(client.on_client_data_updated)
@@ -55,7 +54,7 @@ func _create_client(id:String, data:Dictionary) -> Client:
 
 
 func _on_clients_list_updated(new_id_table:Dictionary[String, Dictionary]):
-	var result:Dictionary[String, Client]
+	var result:Dictionary[String, LobbyClient]
 	for id in id_table.keys():
 		if id in new_id_table.keys():
 			id_table[id].on_client_data_updated(new_id_table[id])
@@ -64,7 +63,7 @@ func _on_clients_list_updated(new_id_table:Dictionary[String, Dictionary]):
 			id_table[id].queue_free()
 	for id in new_id_table.keys():
 		if not id in id_table.keys() and id != interface.id:
-			var new_client:Client = _create_client(id, new_id_table[id])
+			var new_client:LobbyClient = _create_client(id, new_id_table[id])
 			clients.add_child(new_client)
 			result[id] = new_client
 	id_table = result

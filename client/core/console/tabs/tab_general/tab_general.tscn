@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvo7hg2e7ks7k"]
+
+[ext_resource type="PackedScene" uid="uid://vsfhqh50cxsp" path="res://core/console/tabs/base_tab.tscn" id="1_hg7vi"]
+[ext_resource type="Script" uid="uid://jlhyubp8qhlb" path="res://core/console/tabs/tab_general/tab_general.gd" id="2_i6e5q"]
+
+[node name="tab_general" instance=ExtResource("1_hg7vi")]
+script = ExtResource("2_i6e5q")
+
+[node name="input" parent="body" index="1"]
+visible = false

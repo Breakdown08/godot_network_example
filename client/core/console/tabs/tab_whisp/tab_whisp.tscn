@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbcwompd1krnv"]
+
+[ext_resource type="PackedScene" uid="uid://vsfhqh50cxsp" path="res://core/console/tabs/base_tab.tscn" id="1_sr13r"]
+[ext_resource type="Script" uid="uid://dmb6sirinsbd6" path="res://core/console/tabs/tab_whisp/tab_whisp.gd" id="2_oriia"]
+
+[node name="tab_whisp" instance=ExtResource("1_sr13r")]
+script = ExtResource("2_oriia")

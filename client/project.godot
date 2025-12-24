@@ -13,7 +13,12 @@ config_version=5
 config/name="network_client"
 run/main_scene="uid://bc1lms7moux5d"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://config/resources/icon.svg"
+config/icon="res://core/resources/icon.svg"
+
+[autoload]
+
+Preloader="*res://core/global/preloader.gd"
+EventBus="*res://core/global/event_bus.gd"
 
 [debug]
 

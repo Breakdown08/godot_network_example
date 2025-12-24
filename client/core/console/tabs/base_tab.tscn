@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://vsfhqh50cxsp"]
+
+[node name="tab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="body" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scroll" type="ScrollContainer" parent="body"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="console" type="TextEdit" parent="body/scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+editable = false
+wrap_mode = 1
+
+[node name="input" type="HBoxContainer" parent="body"]
+layout_mode = 2
+
+[node name="input" type="TextEdit" parent="body/input"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+wrap_mode = 1
+
+[node name="send" type="Button" parent="body/input"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "SEND"
